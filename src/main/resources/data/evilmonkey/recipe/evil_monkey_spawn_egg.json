@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "SWS",
+    "WCW",
+    "SWS"
+  ],
+  "key": {
+    "S": { "item": "minecraft:string" },
+    "W": { "item": "minecraft:brown_wool" },
+    "C": { "item": "minecraft:cookie" }
+  },
+  "result": {
+    "id": "evilmonkey:evil_monkey_spawn_egg",
+    "count": 1
+  }
+}

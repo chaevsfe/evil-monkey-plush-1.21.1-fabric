@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "EME",
+    "MNM",
+    "EME"
+  ],
+  "key": {
+    "E": { "item": "evilmonkey:evil_monkey_spawn_egg" },
+    "M": { "item": "minecraft:gold_block" },
+    "N": { "item": "minecraft:cake" }
+  },
+  "result": {
+    "id": "evilmonkey:jumbo_evil_monkey_spawn_egg",
+    "count": 1
+  }
+}

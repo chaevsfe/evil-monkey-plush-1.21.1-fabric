@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "id": "evilmonkey",
+  "version": "${version}",
+  "name": "Evil Monkey",
+  "description": "Evil monkey plush creatures",
+  "authors": ["chaevsfe"],
+  "contact": {
+    "homepage": "https://github.com/chaevsfe/evil-monkey-plush-1.21.1-fabric",
+    "sources": "https://github.com/chaevsfe/evil-monkey-plush-1.21.1-fabric",
+    "issues": "https://github.com/chaevsfe/evil-monkey-plush-1.21.1-fabric/issues"
+  },
+  "license": "MIT",
+  "icon": "assets/evilmonkey/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.chaevsfe.monkeyplush.MonkeyPlush"
+    ],
+    "client": [
+      "com.chaevsfe.monkeyplush.MonkeyPlushClient"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=0.16.10",
+    "fabric-api": "*",
+    "minecraft": "~1.21.1",
+    "java": ">=21"
+  },
+  "suggests": {
+    "modmenu": "*",
+    "roughlyenoughitems": "*",
+    "jade": "*"
+  },
+  "custom": {
+    "modmenu": {}
+  }
+}
