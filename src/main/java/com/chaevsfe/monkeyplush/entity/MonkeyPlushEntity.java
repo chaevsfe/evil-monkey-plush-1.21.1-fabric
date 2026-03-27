@@ -164,6 +164,18 @@ public class MonkeyPlushEntity extends Animal {
     @Override
     public boolean doHurtTarget(net.minecraft.world.entity.Entity target) {
         this.entityData.set(DATA_ATTACK_TICK, 10);
+        if (target instanceof net.minecraft.world.entity.LivingEntity living) {
+            float damage = this.isJumbo() ? 40.0f : 20.0f;
+            living.hurt(this.damageSources().mobAttack(this), damage);
+            double kb = this.isJumbo() ? 3.5 : 0.5;
+            double dx = target.getX() - this.getX();
+            double dz = target.getZ() - this.getZ();
+            double dist = Math.sqrt(dx * dx + dz * dz);
+            if (dist > 0) {
+                target.push(dx / dist * kb, 0.4, dz / dist * kb);
+            }
+            return true;
+        }
         return super.doHurtTarget(target);
     }
 
@@ -204,10 +216,17 @@ public class MonkeyPlushEntity extends Animal {
         }
 
         if (!this.level().isClientSide && this.aggroTicksLeft > 0) {
-            this.aggroTicksLeft--;
-            if (this.aggroTicksLeft <= 0) {
+            var target = this.getTarget();
+            if (target != null && (!target.isAlive() || target.isDeadOrDying())) {
+                this.aggroTicksLeft = 0;
                 this.entityData.set(DATA_ANGRY, false);
                 this.setTarget(null);
+            } else {
+                this.aggroTicksLeft--;
+                if (this.aggroTicksLeft <= 0) {
+                    this.entityData.set(DATA_ANGRY, false);
+                    this.setTarget(null);
+                }
             }
         }
 
